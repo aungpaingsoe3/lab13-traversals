@@ -121,11 +121,12 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	}
 	
 	private void preOrderRecurse(BSTNode<T> node) {
-		System.out.println(node);
-		if (node.leftChild != null) {
-			preOrderRecurse(node.leftChild);
+		if (node == null) {
+			return;
 		}
-		if (node.rightChild != null) {
+		else {
+			System.out.println(node);
+			preOrderRecurse(node.leftChild);
 			preOrderRecurse(node.rightChild);
 		}
 		
@@ -213,8 +214,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		bst.insert(2);
 		bst.insert(8);
 		bst.insert(15);
-		bst.insert(10);
-		bst.insert(3);
+		//bst.insert(10);
+		//bst.insert(3);
 		System.out.println(bst);
 	
 		System.out.println("In Order Traversals");
