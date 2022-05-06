@@ -136,33 +136,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	//Traverse the tree in an preorder fashion but using a stack
 	//Print the current node first and then recurse on the children
 	public void preOrderStack() {
-<<<<<<< HEAD
 
-=======
 		Stack<BSTNode<T>> pre = new Stack<BSTNode<T>>();
 		pre.push(root);
-
-
-		
-		while(!pre.isEmpty())
-		{
-			
-			BSTNode n = pre.pop();
-			System.out.print(n);
-			
-			if(n.rightChild != null)
-				pre.push(n.rightChild);
-	
-			if(n.leftChild != null)
-				pre.push(n.leftChild);
-			
-		}
-		
->>>>>>> f61f4bdacf5430927c743a4d189857772d776df3
-		
-		
-
-		
 		while (!pre.isEmpty()) {
 			BSTNode<T> node = pre.pop();
 			System.out.println(node);
@@ -195,30 +171,22 @@ public class BinarySearchTree<T extends Comparable<T>> {
 			inOrderRecurse(node.leftChild);
 			System.out.println(" " + node);
 			inOrderRecurse(node.rightChild);
-				
-			
 		}
 		
 	}
 	//Traverse the tree in an inorder fashion but using a stack
 	public void inOrderStack() {
 		Stack<BSTNode<T>> in = new Stack<BSTNode<T>>();
-		in.push(root);
-		
-		while(!in.isEmpty())
-		{
-			
-			BSTNode n = in.pop();
-			System.out.print(n);
-			
-			if(n.rightChild != null)
-				in.push(n.rightChild);
-	
-			if(n.leftChild != null)
-				in.push(n.leftChild);
-			
-		}
-				
+		BSTNode<T> node = root;
+		while (node != null || !in.isEmpty()) {
+			while (node != null) {
+				in.push(node);
+				node = node.leftChild;
+			}
+			node = in.pop();
+			System.out.println(node);
+			node = node.rightChild;
+		}		
 	}
 	
 	//Traverse the tree in an postorder fashion
@@ -296,13 +264,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		bst.insert(2);
 		bst.insert(8);
 		bst.insert(15);
-		bst.insert(10);
-		bst.insert(3);
+		//bst.insert(10);
+		//bst.insert(3);
 		System.out.println(bst);
-<<<<<<< HEAD
-=======
-	/*
->>>>>>> 9252cbdcd3acbd75924095c7a9239465f6e93d23
+
 		System.out.println("In Order Traversals");
 		bst.inOrder();
 		System.out.println();
@@ -317,14 +282,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		bst.postOrder();
 		System.out.println();
 		bst.postOrderStack();
-		*/
-		
-		bst.postOrderStack();
-		bst.preOrderStack();
-		
-		
 	}
-	
-
 }
 
